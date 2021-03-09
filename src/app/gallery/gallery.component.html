@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let image of images; let rowIndex = index;">
+      <ng-template #content>
+        <a (click)="clickMe(rowIndex, image)">{{image.alt}}</a>
+      </ng-template>
+      <app-hover-effect-v2
+        (submit)="clicked($event)"
+        [title]="image.title"
+        [image-source]="image.src"
+        [image-alternate-text]="image.alt"
+        [content]="content"
+      ></app-hover-effect-v2>
+    </div>
+  </div>
+</div>
